@@ -23,11 +23,11 @@ public class StartApi {
                 } else if (command.equals("kupno")) {
                     System.out.println("Podaj walutę");
                     waluta = scanner.nextLine();
-                    System.out.println("Kurs kupna waluty " + waluta + " -> " + exchangeCurrencyMethods.showActualCurrencyToPlnBuy(waluta).get());
+                    System.out.println("Kurs kupna waluty " + waluta.toUpperCase() + " -> " + exchangeCurrencyMethods.showActualCurrencyToPlnBuy(waluta).get());
                 } else if (command.equals("sprzedaz")) {
                     System.out.println("Podaj walutę");
                     waluta = scanner.nextLine();
-                    System.out.println("Kurs sprzedaży waluty " + waluta + " -> " + exchangeCurrencyMethods.showActualCurrencyToPlnBuy(waluta).get());
+                    System.out.println("Kurs sprzedaży waluty " + waluta.toUpperCase() + " -> " + exchangeCurrencyMethods.showActualCurrencyToPlnSell(waluta).get());
                 }
 
             } while (!command.equals("koniec"));
