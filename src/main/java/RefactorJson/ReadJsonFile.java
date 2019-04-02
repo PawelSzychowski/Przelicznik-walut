@@ -7,11 +7,11 @@ import java.io.IOException;
 
 public class ReadJsonFile implements IRefacotorJsonFile {
 
-    public Currency creatCurrencyFromJson(String currency) throws IOException {
+    public Currency creatCurrencyFromJson(String currency, String data) throws IOException {
         Gson gson = new Gson();
         SendRequest sendRequest = new SendRequest();
-        sendRequest.readJson(currency);
-        Currency currencyObject = gson.fromJson(sendRequest.readJson(currency), Currency.class);
+        sendRequest.readJson(currency,data );
+        Currency currencyObject = gson.fromJson(sendRequest.readJson(currency,data), Currency.class);
         return currencyObject;
     }
 }

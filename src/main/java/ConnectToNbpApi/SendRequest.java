@@ -7,8 +7,8 @@ import java.net.URLConnection;
 import java.util.Scanner;
 
 public class SendRequest implements IConnect {
-    public String readJson(String currency) throws IOException {
-        URL url = new URL("http://api.nbp.pl/api/exchangerates/rates/c/" + currency + "\n");
+    public String readJson(String currency, String data) throws IOException {
+        URL url = new URL("http://api.nbp.pl/api/exchangerates/rates/c/" + currency +"/"+data+ "\n");
         URLConnection connection = url.openConnection();
         connection.setRequestProperty("USER_AGENT", "Chrome");
         InputStream inputStream = url.openStream();

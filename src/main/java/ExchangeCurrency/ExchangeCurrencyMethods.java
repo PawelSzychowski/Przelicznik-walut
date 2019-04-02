@@ -9,20 +9,24 @@ import java.util.Optional;
 
 public class ExchangeCurrencyMethods {
 
-    public Optional<Double> showActualCurrencyToPlnBuy(String currency) throws IOException {
+    public Optional<Double> showCurrencyToPlnBuy(String currency, String data) throws IOException {
         IRefacotorJsonFile actualCurrency = new ReadJsonFile();
-        return actualCurrency.creatCurrencyFromJson(currency).getRates()
+        return actualCurrency.creatCurrencyFromJson(currency,data).getRates()
                 .stream()
                 .map(Rates::getAsk)
                 .findFirst();
     }
 
-    public Optional<Double> showActualCurrencyToPlnSell(String currency) throws IOException {
+    public Optional<Double> showCurrencyToPlnSell(String currency, String data) throws IOException {
         IRefacotorJsonFile actualCurrency = new ReadJsonFile();
-        return actualCurrency.creatCurrencyFromJson(currency).getRates()
+        return actualCurrency.creatCurrencyFromJson(currency,data).getRates()
                 .stream()
                 .map(Rates::getBid)
                 .findFirst();
+    }
+    public double symulationCurrency(String currency, String buyData,String sellDate, double price) throws IOException {
+        double priceSymulation = (showCurrencyToPlnSell(currency,sellDate).get() - showCurrencyToPlnBuy(currency,buyData).get()) * price;
+        return priceSymulation;
     }
 
 }
