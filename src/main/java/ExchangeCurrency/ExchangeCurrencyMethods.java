@@ -1,6 +1,6 @@
 package ExchangeCurrency;
 
-import RefactorJson.IRefacotorJsonFile;
+import RefactorJson.IRefactorJsonFile;
 import RefactorJson.Rates;
 import RefactorJson.ReadJsonFile;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 public class ExchangeCurrencyMethods {
 
     public Optional<Double> showCurrencyToPlnBuy(String currency, String data) throws IOException {
-        IRefacotorJsonFile actualCurrency = new ReadJsonFile();
+        IRefactorJsonFile actualCurrency = new ReadJsonFile();
         return actualCurrency.creatCurrencyFromJson(currency,data).getRates()
                 .stream()
                 .map(Rates::getAsk)
@@ -18,7 +18,7 @@ public class ExchangeCurrencyMethods {
     }
 
     public Optional<Double> showCurrencyToPlnSell(String currency, String data) throws IOException {
-        IRefacotorJsonFile actualCurrency = new ReadJsonFile();
+        IRefactorJsonFile actualCurrency = new ReadJsonFile();
         return actualCurrency.creatCurrencyFromJson(currency,data).getRates()
                 .stream()
                 .map(Rates::getBid)

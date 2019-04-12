@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class StartApi {
+    private StartApi() {
+    }
+
     public static void start() {
         Scanner scanner = new Scanner(System.in);
         ReadJsonFile readJsonFile = new ReadJsonFile();
@@ -48,13 +51,13 @@ public class StartApi {
                     dataSprzdazy = scanner.nextLine();
                     System.out.println("ile waluty kupiłeś");
                     price = scanner.nextLine();
-                    System.out.println("Symulacja sprzedaży" + readJsonFile.creatCurrencyFromJson(waluta,data).getCurrency() + " -> " + exchangeCurrencyMethods.symulationCurrency(waluta,data,dataSprzdazy, Double.parseDouble(price)));
+                    System.out.println("Symulacja sprzedaży " + readJsonFile.creatCurrencyFromJson(waluta,data).getCurrency() + " -> " + exchangeCurrencyMethods.symulationCurrency(waluta,data,dataSprzdazy, Double.parseDouble(price)));
 
                 }
 
             } while (!command.equals("koniec"));
         } catch (IOException ioe) {
-            System.out.println("Wystąpił błąd");
+            ioe.printStackTrace();
         }
     }
 
